@@ -1,4 +1,4 @@
-chapter 7: Arranging and Searching Data
+chapter 7: Graphs
 ==========================================
 이 장에서는 당신이 원하는 어떤 오브젝트를 만드는 것이다.
 

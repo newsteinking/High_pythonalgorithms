@@ -1,4 +1,4 @@
-chapter 12: Managing Big Data
+chapter 12: Heuristic Search
 =======================================
 
 

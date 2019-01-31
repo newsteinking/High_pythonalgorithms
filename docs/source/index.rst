@@ -1,7 +1,7 @@
 Python Algorithms
 ====================
 
-    Python Algorithms
+    Data Structures and Algorithms with Python
 
       written by sean base on following books
 
@@ -29,16 +29,7 @@ Python Algorithms
    chapter10
    chapter11
    chapter12
-   chapter13
-   chapter14
-   chapter15
-   chapter16
-   chapter17
-   chapter18
-   chapter19
-   chapter20
-   chapter21
-   chapter22
+
 
 
 

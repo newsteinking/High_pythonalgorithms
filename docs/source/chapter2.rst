@@ -1,4 +1,4 @@
-chapter 2: Considering Algorithm Design
+chapter 2: Computational Complexity
 ======================================================
 파이썬 기본 빌트인 데이터 타입중에  list 와 tuple에 대해서 알아보자.
 

@@ -1,4 +1,4 @@
-chapter 5: Performing Essential Data Manipulations Using Python
+chapter 5: Sets and Maps
 ===================================================================
 지금까지는 좀 더 힘든 부분을 다루었다. 모든 데이터 타입은 멋쟁이이다. 그것으로 충분할까요?
 약간 페이스를 올려봅시다. conditionals 과 loop를 살펴보기전에 잠깐 기본 용법에 대하 알아 봅시다.

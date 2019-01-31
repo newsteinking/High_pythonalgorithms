@@ -1,4 +1,4 @@
-chapter 11: Getting the Right Web Page
+chapter 11: B-Trees
 ===========================================
 이 장에서는 file stream에 대해서 얘기를 하겠다.
 

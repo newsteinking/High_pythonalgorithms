@@ -1,4 +1,4 @@
-chapter 3: Using Python to Work with Algorithms
+chapter 3: Recursion
 =====================================================
 
 

@@ -1,4 +1,4 @@
-chapter 4: Introducing Python for Algorithm Programming
+chapter 4: Sequences
 ===========================================================
 리스트가 그룹값을 어떤 구조속에 넣고 숫자로 그 값을 참조할때 유용한것을 봤다.
 이 장에서는 이름값으로 각 값을 참조할 수 있는 구조를 배우도록 하겠다.
