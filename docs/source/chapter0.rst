@@ -4,7 +4,7 @@ Chapter 0: About
   Python Algorithms Curriculm
 
                         by sean
-   Base on  Algorithms for Dummies
+   Base on  Algorithms Second
 .. image:: ./img/chapter0_5.png
 
 .. _default_args:

@@ -1,7 +1,7 @@
 Python Algorithms
 ====================
 
-    Data Structures and Algorithms with Python
+    Python Algorithms -Second
 
       written by sean base on following books
 
