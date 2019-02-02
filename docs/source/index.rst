@@ -1,7 +1,7 @@
 Python Algorithms
 ====================
 
-    Python Algorithms -Second
+    Problem solving with algorithms and Data structures using Python
 
       written by sean base on following books
 
@@ -16,19 +16,13 @@ Python Algorithms
 .. toctree::
    :maxdepth: 4
 
-   chapter0
-   chapter1
-   chapter2
-   chapter3
-   chapter4
-   chapter5
-   chapter6
-   chapter7
-   chapter8
-   chapter9
-   chapter10
-   chapter11
-   chapter12
+   Introduction/toctree.rst
+   AlgorithmAnalysis/toctree.rst
+   BasicDS/toctree.rst
+   Recursion/toctree.rst
+   SortSearch/toctree.rst
+   Trees/toctree.rst
+   Graphs/toctree.rst
 
 
 
