@@ -1551,10 +1551,15 @@ Source: `Wikipedia <https://en.wikipedia.org/wiki/Shellsort>`_
 View the algorithm in `action <https://www.toptal.com/developers/sorting-algorithms/shell-sort>`_
 #####################################################################################################
 
-1.9.1 Bucket sort Animation
+1.9.1 Shell sort Animation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: ./img/chapter1-9.gif
+
+
+The step-by-step process of replacing pairs of items during the shell sorting algorithm.
+
+.. image:: ./img/chapter1-1-9.png
 
 
 1.9.2 Python Code
