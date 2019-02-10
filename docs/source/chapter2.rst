@@ -137,3 +137,16 @@ ref : https://github.com/anirudh-janga/py-bit-manipulation/tree/master/code
         def rotate_left(self, num_times):
             n = self._num
             return (n << num_times) | (n >> (64 - num_times))
+
+
+2.5  test 
+----------------------------------
+
+
+.. code-block:: python
+
+
+    test
+    this is test
+
+    
