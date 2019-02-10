@@ -1460,4 +1460,264 @@ http://www.cs.armstrong.edu/liang/animation/web/RadixSort.html
 
     main()
 
+1.8 Cocktail shaker sort
+---------------------------------
+
+.. image:: https://upload.wikimedia.org/wikipedia/commons/e/ef/Sorting_shaker_sort_anim.gif
+   :target: https://upload.wikimedia.org/wikipedia/commons/e/ef/Sorting_shaker_sort_anim.gif
+   :alt: alt text
+
+
+**Cocktail shaker sort**\ , also known as *bidirectional bubble sort*\ , *cocktail sort*\ , *shaker sort* (which can also refer to a variant of *selection sort*\ ), *ripple sort*\ , *shuffle sort*\ , or *shuttle sort*\ , is a variation of bubble sort that is both a stable sorting algorithm and a comparison sort. The algorithm differs from a bubble sort in that it sorts in both directions on each pass through the list.
+
+**Properties**
+
+
+* Worst case performance    O(n\ :raw-html-m2r:`<sup>2</sup>`\ )
+* Best case performance O(n)
+* Average case performance  O(n\ :raw-html-m2r:`<sup>2</sup>`\ )
+
+Source: `Wikipedia <https://en.wikipedia.org/wiki/Cocktail_shaker_sort>`_
+#############################################################################
+
+
+1.8.1 Cocktail shaker sort Animation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. image:: ./img/chapter1-8.gif
+
+
+
+1.8.2 Python Code
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    from __future__ import print_function
+
+    def cocktail_shaker_sort(unsorted):
+        """
+        Pure implementation of the cocktail shaker sort algorithm in Python.
+        """
+        for i in range(len(unsorted)-1, 0, -1):
+            swapped = False
+
+            for j in range(i, 0, -1):
+                if unsorted[j] < unsorted[j-1]:
+                    unsorted[j], unsorted[j-1] = unsorted[j-1], unsorted[j]
+                    swapped = True
+
+            for j in range(i):
+                if unsorted[j] > unsorted[j+1]:
+                    unsorted[j], unsorted[j+1] = unsorted[j+1], unsorted[j]
+                    swapped = True
+
+            if not swapped:
+                return unsorted
+
+    if __name__ == '__main__':
+        try:
+            raw_input          # Python 2
+        except NameError:
+            raw_input = input  # Python 3
+
+        user_input = raw_input('Enter numbers separated by a comma:\n').strip()
+        unsorted = [int(item) for item in user_input.split(',')]
+        cocktail_shaker_sort(unsorted)
+        print(unsorted)
+
+
+
+1.9 Shell sort
+---------------------------------
+
+.. image:: https://upload.wikimedia.org/wikipedia/commons/d/d8/Sorting_shellsort_anim.gif
+   :target: https://upload.wikimedia.org/wikipedia/commons/d/d8/Sorting_shellsort_anim.gif
+   :alt: alt text
+
+
+**Shellsort** is a generalization of *insertion sort* that allows the exchange of items that are far apart.  The idea is to arrange the list of elements so that, starting anywhere, considering every nth element gives a sorted list.  Such a list is said to be h-sorted.  Equivalently, it can be thought of as h interleaved lists, each individually sorted.
+
+**Properties**
+
+
+* Worst case performance O(\ *n*\ log\ :raw-html-m2r:`<sup>2</sup>`\ *n*\ )
+* Best case performance O(\ *n* log *n*\ )
+* Average case performance depends on gap sequence
+
+Source: `Wikipedia <https://en.wikipedia.org/wiki/Shellsort>`_
+##################################################################
+
+View the algorithm in `action <https://www.toptal.com/developers/sorting-algorithms/shell-sort>`_
+#####################################################################################################
+
+1.9.1 Bucket sort Animation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. image:: ./img/chapter1-9.gif
+
+
+1.9.2 Python Code
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+
+    This is a pure python implementation of the shell sort algorithm
+
+    For doctests run following command:
+    python -m doctest -v shell_sort.py
+    or
+    python3 -m doctest -v shell_sort.py
+
+    For manual testing run:
+    python shell_sort.py
+
+    from __future__ import print_function
+
+
+    def shell_sort(collection):
+        """Pure implementation of shell sort algorithm in Python
+        :param collection:  Some mutable ordered collection with heterogeneous
+        comparable items inside
+        :return:  the same collection ordered by ascending
+
+        >>> shell_sort([0, 5, 3, 2, 2])
+        [0, 2, 2, 3, 5]
+
+        >>> shell_sort([])
+        []
+
+        >>> shell_sort([-2, -5, -45])
+        [-45, -5, -2]
+        """
+        # Marcin Ciura's gap sequence
+        gaps = [701, 301, 132, 57, 23, 10, 4, 1]
+
+        for gap in gaps:
+            i = gap
+            while i < len(collection):
+                temp = collection[i]
+                j = i
+                while j >= gap and collection[j - gap] > temp:
+                    collection[j] = collection[j - gap]
+                    j -= gap
+                collection[j] = temp
+                i += 1
+
+        return collection
+
+    if __name__ == '__main__':
+        try:
+            raw_input          # Python 2
+        except NameError:
+            raw_input = input  # Python 3
+
+        user_input = raw_input('Enter numbers separated by a comma:\n').strip()
+        unsorted = [int(item) for item in user_input.split(',')]
+        print(shell_sort(unsorted))
+
+
+Non Comparison sorts
+------------------------
+The following table describes integer sorting algorithms and other sorting algorithms that are not
+comparison sorts. As such, they are not limited to Ω(n log n) . Complexities below assume n items
+to be sorted, with keys of size k, digit size d, and r the range of numbers to be sorted. Many of them
+are based on the assumption that the key size is large enough that all entries have unique key values,
+and hence that n ≪ 2k, where ≪ means "much less than". In the unit-cost random access machine model,
+algorithms with running time of {\displaystyle \scriptstyle n\cdot {\frac {k}{d}}} {\displaystyle
+\scriptstyle n\cdot {\frac {k}{d}}}, such as radix sort, still take time proportional to Θ(n log n),
+because n is limited to be not more than {\displaystyle 2^{\frac {k}{d}}} 2^{\frac {k}{d}}, and
+a larger number of elements to sort would require a bigger k in order to store them in the memory.
+
+
+
+.. image:: ./img/chapter1-1-5.png
+.. image:: ./img/chapter1-1-6.png
+
+1.10 Bucket Sort
+---------------------------------
+
+.. image:: https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Bucket_sort_1.svg/311px-Bucket_sort_1.svg.png
+   :target: https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Bucket_sort_1.svg/311px-Bucket_sort_1.svg.png
+   :alt: alt text
+
+
+.. image:: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Bucket_sort_2.svg/311px-Bucket_sort_2.svg.png
+   :target: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Bucket_sort_2.svg/311px-Bucket_sort_2.svg.png
+   :alt: alt text
+
+
+**Bucket sort**\ , or *bin sort*\ , is a sorting algorithm that works by distributing the elements of an array into a number of buckets. Each bucket is then sorted individually, either using a different sorting algorithm, or by recursively applying the bucket sorting algorithm.
+
+**Properties**
+
+
+* Worst case performance    O(n\ :raw-html-m2r:`<sup>2</sup>`\ )
+* Best case performance O(n+k)
+* Average case performance  O(n+k)
+
+1.10.1 Bucket sort Animation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. image:: ./img/chapter1-1-7.png
+
+.. image:: ./img/chapter1-1-8.png
+
+
+
+
+
+
+
+1.10.2 Python Code
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    from __future__ import print_function
+    from insertion_sort import insertion_sort
+    import math
+
+    DEFAULT_BUCKET_SIZE = 5
+
+    def bucketSort(myList, bucketSize=DEFAULT_BUCKET_SIZE):
+        if(len(myList) == 0):
+            print('You don\'t have any elements in array!')
+
+        minValue = myList[0]
+        maxValue = myList[0]
+
+        # For finding minimum and maximum values
+        for i in range(0, len(myList)):
+            if myList[i] < minValue:
+                minValue = myList[i]
+            elif myList[i] > maxValue:
+                maxValue = myList[i]
+
+        # Initialize buckets
+        bucketCount = math.floor((maxValue - minValue) / bucketSize) + 1
+        buckets = []
+        for i in range(0, bucketCount):
+            buckets.append([])
+
+        # For putting values in buckets
+        for i in range(0, len(myList)):
+            buckets[math.floor((myList[i] - minValue) / bucketSize)].append(myList[i])
+
+        # Sort buckets and place back into input array
+        sortedArray = []
+        for i in range(0, len(buckets)):
+            insertion_sort(buckets[i])
+            for j in range(0, len(buckets[i])):
+                sortedArray.append(buckets[i][j])
+
+        return sortedArray
+
+    if __name__ == '__main__':
+        sortedArray = bucketSort([12, 23, 4, 5, 3, 2, 12, 81, 56, 95])
+        print(sortedArray)
+
+
+
 
