@@ -49,6 +49,15 @@ Third Pass
 ( 1 2 4 5 8 ) → ( 1 2 4 5 8 )
 ( 1 2 4 5 8 ) → ( 1 2 4 5 8 )
 
+Bubble sort Animation
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. image:: ./img/chapter1-1.gif
+
+http://www.cs.armstrong.edu/liang/animation/web/BubbleSort.html
+
+
+
 
 .. code-block:: python
 
