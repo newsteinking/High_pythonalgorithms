@@ -1,21 +1,15 @@
-chapter 12: Heuristic Search
+chapter 12: Recursion Tree/DAG
 =======================================
 
 
 
-12.1 Building a Sample GUI Application
+12.1 Recursion Tree
 ----------------------------------------
 
 
 
-12.2 Using Something Else
+12.2 URecursion DAG(DP)
 -----------------------------
-
-
-
-
-12.3 A Quick Summary
------------------------
 
 
 

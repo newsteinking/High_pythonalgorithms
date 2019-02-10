@@ -1,25 +1,8 @@
-chapter 16: Relying on Dynamic Programming
-=============================================
+chapter 16: MAX Flow/MIN CUT
+===============================
 
 
-16.1 Test First, Code Later
+16.1 MAX Flow/MIN CUT
 -------------------------------
-
-
-
-16.2 Tools for Testing
---------------------------
-
-
-
-
-16.3 Beyond Unit Tests
-------------------------
-
-
-
-
-16.4 A Quick Summary
------------------------
 
 

@@ -1,6 +1,5 @@
-chapter 6: Divide,Combine,and Conquer
-=========================================
-
+chapter 6: Trees
+=======================
 
 
 

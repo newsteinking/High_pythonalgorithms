@@ -1,29 +1,10 @@
-chapter 24: Project 5: A Virtual Tea Party
+chapter 24: Traveling Salesman
 ================================================
 
 
 
-24.1 What’s the Problem?
------------------------------
+24.1 Metric No Repeat Traveling Salesman problem
+--------------------------------------------------
 
 
 
-
-24.2 Useful Tools
--------------------
-
-
-24.3 Preparations
--------------------
-
-
-24.4 First Implementation
------------------------------
-
-
-24.5 Second Implementation
-------------------------------
-
-
-24.6 Further Exploration
--------------------

@@ -1,9 +1,8 @@
-chapter 9: From A to B with Edsger and Friends
+chapter 9: Union-Find DS
 ====================================================
 
 
-9.1 If You're Not Using Python 3
+9.1 Union-Find DISJOINT SETS(UFDS)
 ------------------------------------
-
 
 

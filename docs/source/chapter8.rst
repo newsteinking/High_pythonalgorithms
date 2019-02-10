@@ -1,7 +1,21 @@
-chapter 8: Tangled Dependencies and Memoization
-===================================================
+chapter 8: Graph Structures
+====================================
+
+
+8.1 Undirected/Unweighted
+-----------------------------
+
+
+8.2 Undirected/Weighted
+-----------------------------
 
 
 
-8.1 What is Exception?
--------------------------
+8.3 Directed/Unweighted
+-----------------------------
+
+
+
+8.4 Directed/Weighted
+-----------------------------
+

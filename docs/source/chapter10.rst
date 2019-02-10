@@ -1,8 +1,20 @@
-chapter 10: Matchings,Cuts,and Flows
+chapter 10: Segment Tree
 ============================================
 
 
 
+10.1 MIN Segment Tree
+---------------------------
 
-10.1 Modules
--------------------
+
+
+10.2 MAX Segment Tree
+---------------------------
+
+
+
+
+10.3 SUM Segment Tree
+---------------------------
+
+

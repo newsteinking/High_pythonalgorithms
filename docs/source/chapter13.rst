@@ -1,20 +1,11 @@
-chapter 13: Paralleizing Operations
-=====================================
+chapter 13: Graph Traversal(DFS/BFS)
+=======================================
 
 
 
-13.1 The Python Database API
+13.1 Graph Traversal(DFS/BFS)
 -----------------------------
 
 
-
-13.2 SQLite and PySQLite
-------------------------
-
-
-
-
-13.3 A Quick Summary
------------------------
 
 

@@ -1,27 +1,12 @@
-chapter 14: Compressing Data
+chapter 14: MIN Spanning Tree
 =================================
 
 
 
-14.1 A Handful of Networking Modules
+14.1 MIN Spanning Tree
 -------------------------------------
 
 
-
-14.2 SocketServer and Friends
-------------------------------
-
-
-
-
-14.3 Multiple Connections
----------------------------
-
-
-
-
-14.4 Twisted
--------------------
 
 
 

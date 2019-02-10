@@ -1,6 +1,6 @@
-chapter 5: Traversal : The Skeleton Key of Algorithms
-===================================================================
+chapter 5: Binary Heap
+============================================================
 
 
-5.1 More About print and import
+5.1 Binary Heap
 ----------------------------------------
