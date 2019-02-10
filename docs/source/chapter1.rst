@@ -1,6 +1,16 @@
 chapter 1: Sorting
 =======================================
 
+Comparison sorts
+------------------
+These are all comparison sorts, and so cannot perform better than O(n log n) in the average or worst case.
+
+
+.. image:: ./img/chapter1-1-1.png
+.. image:: ./img/chapter1-1-2.png
+.. image:: ./img/chapter1-1-3.png
+
+
 
 1.1 Bubble Sort
 ---------------------------------
