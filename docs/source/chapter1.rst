@@ -35,37 +35,56 @@ Source: `Wikipedia <https://en.wikipedia.org/wiki/Bubble_sort>`_
 
 View the algorithm in `action <https://www.toptal.com/developers/sorting-algorithms/bubble-sort>`_
 ######################################################################################################
-Step-by-step example
-~~~~~~~~~~~~~~~~~~~~~~
+1.1.1 Step-by-step example
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 Take an array of numbers " 5 1 4 2 8", and sort the array from lowest number to greatest number
 using bubble sort. In each step, elements written in bold are being compared.
+
 Three passes will be required.
 
 First Pass
-( 5 1 4 2 8 ) → ( 1 5 4 2 8 ), Here, algorithm compares the first two elements,
-                                 and swaps since 5 > 1.
+~~~~~~~~~~~
+( 5 1 4 2 8 ) → ( 1 5 4 2 8 ),
+
+   Here, algorithm compares the first two elements,
+   and swaps since 5 > 1.
+
 ( 1 5 4 2 8 ) → ( 1 4 5 2 8 ), Swap since 5 > 4
+
 ( 1 4 5 2 8 ) → ( 1 4 2 5 8 ), Swap since 5 > 2
-( 1 4 2 5 8 ) → ( 1 4 2 5 8 ), Now, since these elements are already in order
-                                 (8 > 5), algorithm does not swap them.
+
+( 1 4 2 5 8 ) → ( 1 4 2 5 8 ),
+    Now, since these elements are already in order
+    (8 > 5), algorithm does not swap them.
+
 Second Pass
+~~~~~~~~~~~~~
 ( 1 4 2 5 8 ) → ( 1 4 2 5 8 )
+
 ( 1 4 2 5 8 ) → ( 1 2 4 5 8 ), Swap since 4 > 2
+
 ( 1 2 4 5 8 ) → ( 1 2 4 5 8 )
+
 ( 1 2 4 5 8 ) → ( 1 2 4 5 8 )
-Now, the array is already sorted, but the algorithm does not know if it is completed.
+
+Now, the array is already sorted, but the algorithm does not know
+if it is completed.
 The algorithm needs one whole pass without any swap to know it is sorted.
 
 Third Pass
-( 1 2 4 5 8 ) → ( 1 2 4 5 8 )
-( 1 2 4 5 8 ) → ( 1 2 4 5 8 )
-( 1 2 4 5 8 ) → ( 1 2 4 5 8 )
+~~~~~~~~~~~~
 ( 1 2 4 5 8 ) → ( 1 2 4 5 8 )
 
-Bubble sort Animation
-~~~~~~~~~~~~~~~~~~~~~~~~~
+( 1 2 4 5 8 ) → ( 1 2 4 5 8 )
+
+( 1 2 4 5 8 ) → ( 1 2 4 5 8 )
+
+( 1 2 4 5 8 ) → ( 1 2 4 5 8 )
+
+1.1.2 Bubble sort Animation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: ./img/chapter1-1.gif
 
@@ -73,7 +92,7 @@ http://www.cs.armstrong.edu/liang/animation/web/BubbleSort.html
 
 
 
-Python Code
+1.1.3 Python Code
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -122,8 +141,8 @@ Python Code
         unsorted = [int(item) for item in user_input.split(',')]
         print(*bubble_sort(unsorted), sep=',')
 
-Bubble Sort Animation
-~~~~~~~~~~~~~~~~~~~~~~~~~
+1.1.4 Bubble Sort Animation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
 
@@ -241,8 +260,8 @@ View the algorithm in `action <https://www.toptal.com/developers/sorting-algorit
 #########################################################################################################
 
 
-Bubble sort Animation
-~~~~~~~~~~~~~~~~~~~~~~~~~
+1.2.1 Bubble sort Animation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: ./img/chapter1-2.gif
 
@@ -251,7 +270,7 @@ http://www.cs.armstrong.edu/liang/animation/web/SelectionSort.html
 
 
 
-Python Code
+1.2.2 Python Code
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
@@ -312,8 +331,8 @@ Python Code
         unsorted = [int(item) for item in user_input.split(',')]
         print(selection_sort(unsorted))
 
-Selection Sort Animation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1.2.3 Selection Sort Animation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
 
@@ -435,8 +454,8 @@ View the algorithm in `action <https://www.toptal.com/developers/sorting-algorit
 #########################################################################################################
 
 
-Inertion sort Animation
-~~~~~~~~~~~~~~~~~~~~~~~~~
+1.3.1 Inertion sort Animation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: ./img/chapter1-3.gif
 
@@ -445,7 +464,7 @@ http://www.cs.armstrong.edu/liang/animation/web/SelectionSort.html
 
 
 
-Python Code
+1.3.2 Python Code
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
@@ -489,8 +508,8 @@ Python Code
 
 
 
-Selection Sort Animation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1.3.3 Selection Sort Animation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
 
@@ -612,8 +631,8 @@ View the algorithm in `action <https://www.toptal.com/developers/sorting-algorit
 
 
 
-Merge sort Animation
-~~~~~~~~~~~~~~~~~~~~~~~~~
+1.4.1 Merge sort Animation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: ./img/chapter1-4.gif
 
@@ -622,7 +641,7 @@ https://yongdanielliang.github.io/animation/web/MergeSortOverview.html
 
 
 
-Python Code
+1.4.2 Python Code
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
@@ -710,7 +729,7 @@ Python Code
         end.reverse()
         return (start + end)
 
-Merge Sort Animation
+1.4.3 Merge Sort Animation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
@@ -854,7 +873,7 @@ View the algorithm in `action <https://www.toptal.com/developers/sorting-algorit
 #####################################################################################################
 
 
-Quick sort Animation
+1.5.1 Quick sort Animation
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: ./img/chapter1-5.gif
@@ -864,7 +883,7 @@ http://www.cs.armstrong.edu/liang/animation/web/QuickSortOverview.html
 
 
 
-Python Code
+1.5.2 Python Code
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
@@ -959,7 +978,7 @@ Python Code
 
 
 
-Quick Sort Animation
+1.5.3 Quick Sort Animation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
@@ -1077,8 +1096,8 @@ View the algorithm in `action <https://www.toptal.com/developers/sorting-algorit
 ####################################################################################################
 
 
-Heap sort Animation
-~~~~~~~~~~~~~~~~~~~~~~~~~
+1.6.1 Heap sort Animation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: ./img/chapter1-6.gif
 
@@ -1087,7 +1106,7 @@ Heap sort Animation
 
 
 
-Python Code
+1.6.2 Python Code
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
@@ -1161,7 +1180,7 @@ Python Code
 
 
 
-Heap Sort Animation
+1.6.3 Heap Sort Animation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
@@ -1284,8 +1303,8 @@ Source: `Wikipedia <https://en.wikipedia.org/wiki/Radix_sort>`_
 ###################################################################
 
 
-Randix sort Animation
-~~~~~~~~~~~~~~~~~~~~~~~~~
+1.7.1 Randix sort Animation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: ./img/chapter1-7.gif
 
@@ -1294,7 +1313,7 @@ http://www.cs.armstrong.edu/liang/animation/web/RadixSort.html
 
 
 
-Python Code
+1.7.2 Python Code
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
@@ -1330,7 +1349,7 @@ Python Code
         placement *= RADIX
 
 
-Randix Sort Animation
+1.7.3 Randix Sort Animation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
