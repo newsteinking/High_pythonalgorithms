@@ -9,7 +9,7 @@ These are all comparison sorts, and so cannot perform better than O(n log n) in 
 .. image:: ./img/chapter1-1-1.png
 .. image:: ./img/chapter1-1-2.png
 .. image:: ./img/chapter1-1-3.png
-
+.. image:: ./img/chapter1-1-4.png
 
 
 1.1 Bubble Sort
