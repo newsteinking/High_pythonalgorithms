@@ -260,7 +260,7 @@ View the algorithm in `action <https://www.toptal.com/developers/sorting-algorit
 #########################################################################################################
 
 
-1.2.1 Bubble sort Animation
+1.2.1 Selection sort Animation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: ./img/chapter1-2.gif
@@ -508,7 +508,7 @@ http://www.cs.armstrong.edu/liang/animation/web/SelectionSort.html
 
 
 
-1.3.3 Selection Sort Animation
+1.3.3 Inertion Sort Animation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
