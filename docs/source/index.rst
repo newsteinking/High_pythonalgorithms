@@ -17,7 +17,7 @@ Python Algorithms
 .. toctree::
    :maxdepth: 4
 
-   chapter0-1
+
    chapter1
    chapter2
    chapter3
