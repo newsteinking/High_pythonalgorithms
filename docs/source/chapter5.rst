@@ -2,5 +2,362 @@ chapter 5: Bit manipulation
 ============================================================
 
 
-5.1 Binary Heap
+5.1 add bitwise operator
 ----------------------------------------
+The following code adds two positive integers without using the '+' operator.
+The code uses bitwise operations to add two numbers.
+
+Input: 2 3
+Output: 5
+
+
+.. code-block:: python
+
+
+    def add_bitwise_operator(x, y):
+
+        while y:
+            carry = x & y
+            x = x ^ y
+            y = carry << 1
+        return x
+
+
+
+
+5.2 binary gap
+----------------------------------------
+Given a positive integer N, find and return the longest distance between two
+consecutive 1' in the binary representation of N.
+If there are not two consecutive 1's, return 0
+
+For example:
+Input: 22
+Output: 2
+Explanation:
+22 in binary is 10110
+In the binary representation of 22, there are three ones, and two consecutive pairs of 1's.
+The first consecutive pair of 1's have distance 2.
+The second consecutive pair of 1's have distance 1.
+The answer is the largest of these two distances, which is 2
+
+
+.. code-block:: python
+
+
+    def binary_gap(N):
+        last = None
+        ans = 0
+        index = 0
+        while N != 0:
+            if N & 1:
+                if last is not None:
+                    ans = max(ans, index - last)
+                last = index
+            index = index + 1
+            N = N >> 1
+        return ans
+
+
+5.3 bit operation
+----------------------------------------
+Fundamental bit operation:
+    get_bit(num, i): get an exact bit at specific index
+    set_bit(num, i): set a bit at specific index
+    clear_bit(num, i): clear a bit at specific index
+    update_bit(num, i, bit): update a bit at specific index
+
+
+This function shifts 1 over by i bits, creating a value being like 0001000. By
+performing an AND with num, we clear all bits other than the bit at bit i.
+Finally we compare that to 0
+
+
+.. code-block:: python
+
+    def get_bit(num, i):
+        return (num & (1 << i)) != 0
+
+This method operates in almost the reverse of set_bit
+
+.. code-block:: python
+
+    def clear_bit(num, i):
+        mask = ~(1 << i)
+        return num & mask
+
+
+To set the ith bit to value, we first clear the bit at position i by using a
+mask. Then, we shift the intended value. Finally we OR these two numbers
+
+
+.. code-block:: python
+
+    def update_bit(num, i, bit):
+        mask = ~(1 << i)
+        return (num & mask) | (bit << i)
+
+
+
+
+
+
+
+
+
+
+
+5.4 bytes int conversion
+----------------------------------------
+
+.. code-block:: python
+
+    from collections import deque
+
+
+    def int_to_bytes_big_endian(num):
+        bytestr = deque()
+        while num > 0:
+            # list.insert(0, ...) is inefficient
+            bytestr.appendleft(num & 0xff)
+            num >>= 8
+        return bytes(bytestr)
+
+
+    def int_to_bytes_little_endian(num):
+        bytestr = []
+        while num > 0:
+            bytestr.append(num & 0xff)
+            num >>= 8
+        return bytes(bytestr)
+
+
+    def bytes_big_endian_to_int(bytestr):
+        num = 0
+        for b in bytestr:
+            num <<= 8
+            num += b
+        return num
+
+
+    def bytes_little_endian_to_int(bytestr):
+        num = 0
+        e = 0
+        for b in bytestr:
+            num += b << e
+            e += 8
+        return num
+
+
+
+5.5 count filps to convert
+----------------------------------------
+Write a function to determine the number of bits you would need to
+flip to convert integer A to integer B.
+For example:
+Input: 29 (or: 11101), 15 (or: 01111)
+Output: 2
+
+
+
+.. code-block:: python
+
+
+    def count_flips_to_convert(a, b):
+
+        diff = a ^ b
+
+        # count number of ones in diff
+        count = 0
+        while diff:
+            diff &= (diff - 1)
+            count += 1
+        return count
+
+
+5.6 count ones
+----------------------------------------
+Write a function that takes an unsigned integer and
+returns the number of ’1' bits it has
+(also known as the Hamming weight).
+
+For example, the 32-bit integer ’11' has binary
+representation 00000000000000000000000000001011,
+so the function should return 3.
+
+T(n)- O(k)   : k is the number of 1s present in binary representation.
+NOTE: this complexity is better than O(log n).
+e.g. for n = 00010100000000000000000000000000
+only 2 iterations are required.
+
+Number of loops is
+equal to the number of 1s in the binary representation
+
+
+.. code-block:: python
+
+    def count_ones_recur(n):
+        """Using Brian Kernighan’s Algorithm. (Recursive Approach)"""
+
+        if not n:
+            return 0
+        return 1 + count_ones_recur(n & (n-1))
+
+
+    def count_ones_iter(n):
+        """Using Brian Kernighan’s Algorithm. (Iterative Approach)"""
+
+        count = 0
+        while n:
+            n &= (n-1)
+            count += 1
+        return count
+
+
+
+5.7 find difference
+----------------------------------------
+Given two strings s and t which consist of only lowercase letters.
+String t is generated by random shuffling string s and then add one more letter
+at a random position. Find the letter that was added in t.
+
+For example:
+Input:
+s = "abcd"
+t = "abecd"
+Output: 'e'
+
+Explanation:
+'e' is the letter that was added.
+"""
+
+"""
+We use the characteristic equation of XOR.
+A xor B xor C = A xor C xor B
+If A == C, then A xor C = 0
+and then, B xor 0 =  B
+
+
+.. code-block:: python
+
+    def find_difference(s, t):
+        ret = 0
+        for ch in s + t:
+            # ord(ch) return an integer representing the Unicode code point of that character
+            ret = ret ^ ord(ch)
+        # chr(i) Return the string representing a character whose Unicode code point is the integer i
+        return chr(ret)
+
+
+5.8 find missing number
+----------------------------------------
+Returns the missing number from a sequence of unique integers
+in range [0..n] in O(n) time and space. The difference between
+consecutive integers cannot be more than 1. If the sequence is
+already complete, the next integer in the sequence will be returned.
+
+
+
+.. code-block:: python
+
+    def find_missing_number(nums):
+
+        missing = 0
+        for i, num in enumerate(nums):
+            missing ^= num
+            missing ^= i + 1
+
+        return missing
+
+
+    def find_missing_number2(nums):
+
+        num_sum = sum(nums)
+        n = len(nums)
+        total_sum = n*(n+1) // 2
+        missing = total_sum - num_sum
+        return missing
+
+
+5.9 flip bit longest sequence
+----------------------------------------
+
+.. code-block:: python
+
+
+
+
+5.10 has alternative bit
+----------------------------------------
+
+.. code-block:: python
+
+
+
+
+5.11 insert bit
+----------------------------------------
+
+.. code-block:: python
+
+
+
+
+5.12 Power of two
+----------------------------------------
+
+.. code-block:: python
+
+
+
+
+5.13 Remove bit
+----------------------------------------
+
+.. code-block:: python
+
+
+
+
+5.14 Reverse bits
+----------------------------------------
+
+.. code-block:: python
+
+
+
+
+5.15 Single number
+----------------------------------------
+
+.. code-block:: python
+
+
+
+
+5.16 Single number2
+----------------------------------------
+
+.. code-block:: python
+
+
+
+
+5.17 Single number3
+----------------------------------------
+
+.. code-block:: python
+
+
+
+
+5.18 subsets
+----------------------------------------
+
+.. code-block:: python
+
+
+5.19 swap pair
+----------------------------------------
+
+.. code-block:: python
