@@ -1,5 +1,6 @@
 def extended_gcd(a, b):
-    """Extended GCD algorithm.
+    """
+    Extended GCD algorithm.
     Return s, t, g
     such that a * s + b * t = GCD(a, b)
     and s and t are co-prime.
