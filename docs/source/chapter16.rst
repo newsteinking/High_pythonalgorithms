@@ -1,4 +1,4 @@
-chapter 16: MAX Flow/MIN CUT
+chapter 16: queues
 ===============================
 
 

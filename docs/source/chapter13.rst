@@ -1,4 +1,4 @@
-chapter 13: Graph Traversal(DFS/BFS)
+chapter 13: Maths
 =======================================
 
 

@@ -1,4 +1,4 @@
-chapter 19: Suffix Tree
+chapter 19: stack
 ==================================
 
 

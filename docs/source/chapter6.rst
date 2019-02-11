@@ -1,4 +1,4 @@
-chapter 6: Trees
+chapter 6: Calculator
 =======================
 
 

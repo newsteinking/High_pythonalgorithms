@@ -1,4 +1,4 @@
-chapter 20: Suffix Array
+chapter 20: Strings
 ========================================
 
 

@@ -1,4 +1,4 @@
-chapter 5: Binary Heap
+chapter 5: Bit manipulation
 ============================================================
 
 

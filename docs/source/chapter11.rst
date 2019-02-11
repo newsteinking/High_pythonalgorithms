@@ -1,4 +1,4 @@
-chapter 11: Fenwick Tree
+chapter 11: Linked list
 =============================
 
 

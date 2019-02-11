@@ -1,4 +1,4 @@
-chapter 22: Convex Hull
+chapter 22: Union-find
 ===============================================
 
 

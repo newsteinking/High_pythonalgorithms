@@ -1,4 +1,4 @@
-chapter 10: Segment Tree
+chapter 10: Heap
 ============================================
 
 

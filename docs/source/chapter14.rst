@@ -1,4 +1,4 @@
-chapter 14: MIN Spanning Tree
+chapter 14: Matrix
 =================================
 
 

@@ -1,4 +1,4 @@
-chapter 17: Graph Matching
+chapter 17: search
 =============================
 
 
