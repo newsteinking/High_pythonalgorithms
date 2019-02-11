@@ -1,4 +1,5 @@
-"""The edit distance between two words is the minimum number of letter insertions,
+"""
+The edit distance between two words is the minimum number of letter insertions,
 letter deletions, and letter substitutions required to transform one word into another.
 
 For example, the edit distance between FOOD and MONEY is at most four:

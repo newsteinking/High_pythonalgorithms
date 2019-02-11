@@ -45,7 +45,7 @@ g1.add_edge(3, 0)
 g1.add_edge(2, 4)
 g1.add_edge(4, 2)
 print ("Yes") if g1.is_sc() else print("No")
- 
+
 g2 = Graph(4)
 g2.add_edge(0, 1)
 g2.add_edge(1, 2)

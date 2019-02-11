@@ -1,4 +1,5 @@
-"""Given a list of points, find the k closest to the origin.
+"""
+Given a list of points, find the k closest to the origin.
 
 Idea: Maintain a max heap of k elements.
 We can iterate through all points.

@@ -281,83 +281,412 @@ already complete, the next integer in the sequence will be returned.
 
 5.9 flip bit longest sequence
 ----------------------------------------
+You have an integer and you can flip exactly one bit from a 0 to 1.
+Write code to find the length of the longest sequence of 1s you could create.
+For example:
+Input: 1775 ( or: 11011101111)
+Output: 8
+
 
 .. code-block:: python
 
+    def flip_bit_longest_seq(num):
+
+        curr_len = 0
+        prev_len = 0
+        max_len = 0
+
+        while num:
+            if num & 1 == 1:  # last digit is 1
+                curr_len += 1
+
+            elif num & 1 == 0:  # last digit is 0
+                if num & 2 == 0:  # second last digit is 0
+                    prev_len = 0
+                else:
+                    prev_len = curr_len
+                curr_len = 0
+
+            max_len = max(max_len, prev_len + curr_len)
+            num = num >> 1  # right shift num
+
+        return max_len + 1
 
 
 
 5.10 has alternative bit
 ----------------------------------------
+Given a positive integer, check whether it has alternating bits: namely,
+if two adjacent bits will always have different values.
+
+For example:
+Input: 5
+Output: True because the binary representation of 5 is: 101.
+
+Input: 7
+Output: False because the binary representation of 7 is: 111.
+
+Input: 11
+Output: False because the binary representation of 11 is: 1011.
+
+Input: 10
+Output: True because The binary representation of 10 is: 1010.
+
 
 .. code-block:: python
 
+
+    # Time Complexity - O(number of bits in n)
+    def has_alternative_bit(n):
+        first_bit = 0
+        second_bit = 0
+        while n:
+            first_bit = n & 1
+            if n >> 1:
+                second_bit = (n >> 1) & 1
+                if not first_bit ^ second_bit:
+                    return False
+            else:
+                return True
+            n = n >> 1
+        return True
+
+    # Time Complexity - O(1)
+    def has_alternative_bit_fast(n):
+        mask1 = int('aaaaaaaa', 16)  # for bits ending with zero (...1010)
+        mask2 = int('55555555', 16)  # for bits ending with one  (...0101)
+        return mask1 == (n + (n ^ mask1)) or mask2 == (n + (n ^ mask2))
 
 
 
 5.11 insert bit
 ----------------------------------------
+Insertion:
+
+insert_one_bit(num, bit, i): insert exact one bit at specific position
+For example:
+
+Input: num = 10101 (21)
+insert_one_bit(num, 1, 2): 101101 (45)
+insert_one_bit(num, 0 ,2): 101001 (41)
+insert_one_bit(num, 1, 5): 110101 (53)
+insert_one_bit(num, 1, 0): 101011 (43)
+
+insert_mult_bits(num, bits, len, i): insert multiple bits with len at specific position
+For example:
+
+Input: num = 101 (5)
+insert_mult_bits(num, 7, 3, 1): 101111 (47)
+insert_mult_bits(num, 7, 3, 0): 101111 (47)
+insert_mult_bits(num, 7, 3, 3): 111101 (61)
+
+
+Insert exact one bit at specific position
+
+Algorithm:
+1. Create a mask having bit from i to the most significant bit, and append the new bit at 0 position
+2. Keep the bit from 0 position to i position ( like 000...001111)
+3) Merge mask and num
+
 
 .. code-block:: python
 
+    def insert_one_bit(num, bit, i):
+        # Create mask
+        mask = num >> i
+        mask = (mask << 1) | bit
+        mask = mask << i
+        # Keep the bit from 0 position to i position
+        right = ((1 << i) - 1) & num
+        return right | mask
 
+    def insert_mult_bits(num, bits, len, i):
+        mask = num >> i
+        mask = (mask << len) | bits
+        mask = mask << i
+        right = ((1 << i) - 1) & num
+        return right | mask
 
 
 5.12 Power of two
 ----------------------------------------
+given an integer, write a function to determine if it is a power of two
+
 
 .. code-block:: python
 
-
+    def is_power_of_two(n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        return n > 0 and not n & (n-1)
 
 
 5.13 Remove bit
 ----------------------------------------
+Remove_bit(num, i): remove a bit at specific position.
+For example:
+
+Input: num = 10101 (21)
+remove_bit(num, 2): output = 1001 (9)
+remove_bit(num, 4): output = 101 (5)
+remove_bit(num, 0): output = 1010 (10)
+
 
 .. code-block:: python
 
+    def remove_bit(num, i):
+        mask = num >> (i + 1)
+        mask = mask << i
+        right = ((1 << i) - 1) & num
+        return mask | right
 
 
 
 5.14 Reverse bits
 ----------------------------------------
+Reverse bits of a given 32 bits unsigned integer.
+
+For example, given input 43261596
+(represented in binary as 00000010100101000001111010011100),
+return 964176192
+(represented in binary as 00111001011110000010100101000000).
+
 
 .. code-block:: python
 
-
+    def reverse_bits(n):
+        m = 0
+        i = 0
+        while i < 32:
+            m = (m << 1) + (n & 1)
+            n >>= 1
+            i += 1
+        return m
 
 
 5.15 Single number
 ----------------------------------------
+Given an array of integers, every element appears
+twice except for one. Find that single one.
+
+NOTE: This also works for finding a number occurring odd
+      number of times, where all the other numbers appear
+      even number of times.
+
+Note:
+Your algorithm should have a linear runtime complexity.
+Could you implement it without using extra memory?
 
 .. code-block:: python
 
-
+    def single_number(nums):
+        """
+        Returns single number, if found.
+        Else if all numbers appear twice, returns 0.
+        :type nums: List[int]
+        :rtype: int
+        """
+        i = 0
+        for num in nums:
+            i ^= num
+        return i
 
 
 5.16 Single number2
 ----------------------------------------
+Given an array of integers, every element appears
+three times except for one, which appears exactly once.
+Find that single one.
+
+Note:
+Your algorithm should have a linear runtime complexity.
+Could you implement it without using extra memory?
+
+
+Solution:
+32 bits for each integer.
+Consider 1 bit in it, the sum of each integer's corresponding bit
+(except for the single number)
+should be 0 if mod by 3. Hence, we sum the bits of all
+integers and mod by 3,
+the remaining should be the exact bit of the single number.
+In this way, you get the 32 bits of the single number.
+
 
 .. code-block:: python
 
-
+    # Another awesome answer
+    def single_number2(nums):
+        ones, twos = 0, 0
+        for i in range(len(nums)):
+            ones = (ones ^ nums[i]) & ~twos
+            twos = (twos ^ nums[i]) & ~ones
+        return ones
 
 
 5.17 Single number3
 ----------------------------------------
+Given an array of numbers nums,
+in which exactly two elements appear only once
+and all the other elements appear exactly twice.
+Find the two elements that appear only once.
+Limitation: Time Complexity: O(N) and Space Complexity O(1)
+
+For example:
+
+Given nums = [1, 2, 1, 3, 2, 5], return [3, 5].
+
+Note:
+The order of the result is not important.
+So in the above example, [5, 3] is also correct.
+
+
+Solution:
+1. Use XOR to cancel out the pairs and isolate A^B
+2. It is guaranteed that at least 1 bit exists in A^B since
+   A and B are different numbers. ex) 010 ^ 111 = 101
+3. Single out one bit R (right most bit in this solution) to use it as a pivot
+4. Divide all numbers into two groups.
+   One group with a bit in the position R
+   One group without a bit in the position R
+5. Use the same strategy we used in step 1 to isolate A and B from each group.
+
 
 .. code-block:: python
 
+    def single_number3(nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        # isolate a^b from pairs using XOR
+        ab = 0
+        for n in nums:
+            ab ^= n
+
+        # isolate right most bit from a^b
+        right_most = ab & (-ab)
+
+        # isolate a and b from a^b
+        a, b = 0, 0
+        for n in nums:
+            if n & right_most:
+                a ^= n
+            else:
+                b ^= n
+        return [a, b]
 
 
 
 5.18 subsets
 ----------------------------------------
+Given a set of distinct integers, nums,
+return all possible subsets.
+
+Note: The solution set must not contain duplicate subsets.
+
+For example,
+If nums = [1,2,3], a solution is:
+
+{
+    (1, 2),
+    (1, 3),
+    (1,),
+    (2,),
+    (3,),
+    (1, 2, 3),
+    (),
+    (2, 3)
+}
 
 .. code-block:: python
+
+    def subsets(nums):
+        """
+        :param nums: List[int]
+        :return: Set[tuple]
+        """
+        n = len(nums)
+        total = 1 << n
+        res = set()
+
+        for i in range(total):
+            subset = tuple(num for j, num in enumerate(nums) if i & 1 << j)
+            res.add(subset)
+
+        return res
+
+this explanation is from leet_nik @ leetcode
+This is an amazing solution. Learnt a lot.
+
+Number of subsets for {1 , 2 , 3 } = 2^3 .
+why ?
+case    possible outcomes for the set of subsets
+  1   ->          Take or dont take = 2
+  2   ->          Take or dont take = 2
+  3   ->          Take or dont take = 2
+
+therefore,
+total = 2*2*2 = 2^3 = {{}, {1}, {2}, {3}, {1,2}, {1,3}, {2,3}, {1,2,3}}
+
+Lets assign bits to each outcome  ->
+First bit to 1 , Second bit to 2 and third bit to 3
+Take = 1
+Dont take = 0
+
+0) 0 0 0  -> Dont take 3 , Dont take 2 , Dont take 1 = { }
+1) 0 0 1  -> Dont take 3 , Dont take 2 ,   take 1    = { 1 }
+2) 0 1 0  -> Dont take 3 ,    take 2   , Dont take 1 = { 2 }
+3) 0 1 1  -> Dont take 3 ,    take 2   ,   take 1    = { 1 , 2 }
+4) 1 0 0  ->    take 3   , Dont take 2 , Dont take 1 = { 3 }
+5) 1 0 1  ->    take 3   , Dont take 2 ,   take 1    = { 1 , 3 }
+6) 1 1 0  ->    take 3   ,    take 2   , Dont take 1 = { 2 , 3 }
+7) 1 1 1  ->    take 3   ,    take 2   ,   take 1    = { 1 , 2 , 3 }
+
+In the above logic ,Insert S[i] only if (j>>i)&1 ==true
+{ j E { 0,1,2,3,4,5,6,7 }   i = ith element in the input array }
+
+element 1 is inserted only into those places where 1st bit of j is 1
+if( j >> 0 &1 )  ==> for above above eg.
+this is true for sl.no.( j )= 1 , 3 , 5 , 7
+
+element 2 is inserted only into those places where 2nd bit of j is 1
+if( j >> 1 &1 )  == for above above eg.
+this is true for sl.no.( j ) = 2 , 3 , 6 , 7
+
+element 3 is inserted only into those places where 3rd bit of j is 1
+if( j >> 2 & 1 )  == for above above eg.
+this is true for sl.no.( j ) = 4 , 5 , 6 , 7
+
+Time complexity : O(n*2^n) , for every input element loop traverses
+the whole solution set length i.e. 2^n
 
 
 5.19 swap pair
 ----------------------------------------
+Swap_pair: A function swap odd and even bits in an integer with as few instructions
+as possible (Ex bit and bit 1 are swapped, bit 2 and bit 3 are swapped)
+
+For example:
+22: 010110  --> 41: 101001
+10: 1010    --> 5 : 0101
+"""
+
+"""
+We can approach this as operating on the odds bit first, and then the even bits.
+We can mask all odd bits with 10101010 in binary ('AA') then shift them right by 1
+Similarly, we mask all even bit with 01010101 in binary ('55') then shift them left
+by 1. Finally, we merge these two values by OR operation.
+
 
 .. code-block:: python
+
+
+    def swap_pair(num):
+        # odd bit arithmetic right shift 1 bit
+        odd = (num & int('AAAAAAAA', 16)) >> 1
+        # even bit left shift 1 bit
+        even = (num & int('55555555', 16)) << 1
+        return odd | even
