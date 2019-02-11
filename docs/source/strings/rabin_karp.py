@@ -1,50 +1,48 @@
-def rabin_karp(pattern, text):
-    """
+# Following program is the python implementation of
+# Rabin Karp Algorithm
 
-    The Rabin-Karp Algorithm for finding a pattern within a piece of text
-    with complexity O(nm), most efficient when it is used with multiple patterns
-    as it is able to check if any of a set of patterns match a section of text in o(1) given the precomputed hashes.
+class RollingHash:
+    def __init__(self, text, size_word):
+        self.text = text
+        self.hash = 0
+        self.size_word = size_word
 
-    This will be the simple version which only assumes one pattern is being searched for but it's not hard to modify
+        for i in range(0, size_word):
+            #ord maps the character to a number
+            #subtract out the ASCII value of "a" to start the indexing at zero
+            self.hash += (ord(self.text[i]) - ord("a")+1)*(26**(size_word - i -1))
 
-    1) Calculate pattern hash
+        #start index of current window
+        self.window_start = 0
+        #end of index window
+        self.window_end = size_word
 
-    2) Step through the text one character at a time passing a window with the same length as the pattern
-        calculating the hash of the text within the window compare it with the hash of the pattern. Only testing
-        equality if the hashes match
+    def move_window(self):
+        if self.window_end <= len(self.text) - 1:
+            #remove left letter from hash value
+            self.hash -= (ord(self.text[self.window_start]) - ord("a")+1)*26**(self.size_word-1)
+            self.hash *= 26
+            self.hash += ord(self.text[self.window_end])- ord("a")+1
+            self.window_start += 1
+            self.window_end += 1
 
-    """
-    p_len = len(pattern)
-    p_hash = hash(pattern)
+    def window_text(self):
+        return self.text[self.window_start:self.window_end]
 
-    for i in range(0, len(text) - (p_len - 1)):
+def rabin_karp(word, text):
+    if word == "" or text == "":
+        return None
+    if len(word) > len(text):
+        return None
 
-        # written like this t
-        text_hash = hash(text[i:i + p_len])
-        if text_hash == p_hash and \
-                text[i:i + p_len] == pattern:
-            return True
-    return False
+    rolling_hash = RollingHash(text, len(word))
+    word_hash = RollingHash(word, len(word))
+    #word_hash.move_window()
 
+    for i in range(len(text) - len(word) + 1):
+        if rolling_hash.hash == word_hash.hash:
+            if rolling_hash.window_text() == word:
+                return i
+        rolling_hash.move_window()
+    return None
 
-if __name__ == '__main__':
-    # Test 1)
-    pattern = "abc1abc12"
-    text1 = "alskfjaldsabc1abc1abc12k23adsfabcabc"
-    text2 = "alskfjaldsk23adsfabcabc"
-    assert rabin_karp(pattern, text1) and not rabin_karp(pattern, text2)
-
-    # Test 2)
-    pattern = "ABABX"
-    text = "ABABZABABYABABX"
-    assert rabin_karp(pattern, text)
-
-    # Test 3)
-    pattern = "AAAB"
-    text = "ABAAAAAB"
-    assert rabin_karp(pattern, text)
-
-    # Test 4)
-    pattern = "abcdabcy"
-    text = "abcxabcdabxabcdabcdabcy"
-    assert rabin_karp(pattern, text)
